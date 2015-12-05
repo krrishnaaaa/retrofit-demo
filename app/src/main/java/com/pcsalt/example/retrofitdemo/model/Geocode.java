@@ -3,6 +3,7 @@ package com.pcsalt.example.retrofitdemo.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.pcsalt.example.retrofitdemo.model.geocode.Result;
+import com.pcsalt.example.retrofitdemo.model.geocode.STATUS;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,7 @@ public class Geocode {
     private List<Result> results = new ArrayList<>();
     @SerializedName("status")
     @Expose
-    private String status;
+    private STATUS status;
 
     /**
      * @return The results
@@ -35,14 +36,14 @@ public class Geocode {
     /**
      * @return The status
      */
-    public String getStatus() {
+    public STATUS getStatus() {
         return status;
     }
 
     /**
      * @param status The status
      */
-    public void setStatus(String status) {
+    public void setStatus(STATUS status) {
         this.status = status;
     }
 }

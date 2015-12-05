@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.pcsalt.example.retrofitdemo.controller.ApiEndpoints;
 import com.pcsalt.example.retrofitdemo.model.Geocode;
+import com.pcsalt.example.retrofitdemo.model.geocode.STATUS;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -71,10 +72,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Response<Geocode> response, Retrofit retrofit) {
                 Geocode geocode = response.body();
-                if ("OK".equalsIgnoreCase(geocode.getStatus())) {
+                if (geocode.getStatus() == STATUS.OK) {
                     tvResult.setText(geocode.getResults().get(0).getFormattedAddress());
                 } else {
-                    tvResult.setText(geocode.getStatus());
+                    tvResult.setText(geocode.getStatus().name());
                 }
             }
 
